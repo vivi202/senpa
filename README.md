@@ -1,6 +1,6 @@
 # Senpa
-`Senpa` is a parser for OPNsense firewall logs(maybe it also work for pfsense).
-
+`Senpa` is a parser for OPNsense firewall logs(maybe it also work for pfsense).\
+it's based on this [grammar specification](https://github.com/opnsense/ports/blob/master/opnsense/filterlog/files/description.txt).
 # Features 
 The serde feature adds Serde Serialize and Deserialize traits to Log.
 
@@ -50,3 +50,5 @@ The serde feature adds Serde Serialize and Deserialize traits to Log.
     }
 
 ```
+# Todos
+- [ ] Add CARP support.
