@@ -6,7 +6,7 @@ fn test_parse_log() {
     4,0x0,,127,61633,0,DF,6,tcp,\
     52,192.168.10.15,192.168.20.14,\
     52461,9100,0,S,3442468761,,64240,,mss;nop;wscale;nop;nop;sackOK";
-    let parsed_log = parse_log(&log).unwrap();
+    let parsed_log = parse_log(log).unwrap();
 
     println!("# LOG #");
     println!(

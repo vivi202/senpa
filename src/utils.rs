@@ -33,13 +33,13 @@ pub(crate) fn hexadecimal_value(input: &str) -> IResult<&str, u8> {
 }
 
 #[cfg(test)]
-mod test{
+mod test {
     use nom::character::complete::u32;
 
     use super::*;
 
     #[test]
-    fn test_csv(){
-        assert_eq!(Ok(("other...",10)),csv(u32)("10,other..."));
+    fn test_csv() {
+        assert_eq!(Ok(("other...", 10)), csv(u32)("10,other..."));
     }
 }

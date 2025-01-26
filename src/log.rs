@@ -137,7 +137,7 @@ mod test {
         4,0x0,,127,61633,0,DF,6,tcp,\
         52,192.168.10.15,192.168.20.14,\
         52461,9100,0,S,3442468761,,64240,,mss;nop;wscale;nop;nop;sackOK";
-        let flog = parse_log(&log).unwrap();
+        let flog = parse_log(log).unwrap();
         assert_eq!(
             FwLog {
                 packet_filter: PacketFilter {
@@ -190,7 +190,7 @@ mod test {
         let log = "96,,,fae559338f65e11c53669fc3642c93c2,vlan0.20,match,pass,out,\
         4,0x0,,127,58940,0,none,17,udp,\
         106,192.168.10.15,192.168.20.11,49678,161,86";
-        let flog = parse_log(&log).unwrap();
+        let flog = parse_log(log).unwrap();
         assert_eq!(
             (FwLog {
                 packet_filter: PacketFilter {

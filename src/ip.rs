@@ -103,7 +103,7 @@ fn parse_ipv4_header(input: &str) -> IResult<&str, (Protocol, IpSpecific)> {
     let (next, offset) = csv(parse_u16)(next)?;
     let (next, flags) = csv(alphanumeric1).map(|s: &str| s.into()).parse(next)?;
     let (next, protonum) = csv(parse_u8)(next)?;
-    let (next, protoname) = csv(alphanumeric1).map(|s: &str| s.into()).parse(next)?;
+    let (next, protoname) = csv(alphanumeric1).map(|s: &str| s).parse(next)?;
 
     let proto = Protocol {
         name: ProtoName::from_str(protoname).unwrap(),
@@ -143,9 +143,7 @@ fn parse_ipv6_header(input: &str) -> IResult<&str, (Protocol, IpSpecific)> {
         hoplimit,
     };
 
-    let (next, protoname) = csv(take_till(|c| c == ','))
-        .map(|s: &str| s.into())
-        .parse(next)?;
+    let (next, protoname) = csv(take_till(|c| c == ','))(next)?;
 
     let (next, protonum) = csv(parse_u8)(next)?;
 
@@ -216,7 +214,7 @@ mod test {
             offset: 0,
             flags: "none".into(),
         });
-        
+
         assert_eq!(
             Ok((
                 "106,192.168.10.15,192.168.20.11,49678,161,86",
