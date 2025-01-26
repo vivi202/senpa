@@ -13,7 +13,7 @@ The serde feature adds Serde Serialize and Deserialize traits to Log.
     52,192.168.10.15,192.168.20.14,\
     52461,9100,0,S,3442468761,,64240,,mss;nop;wscale;nop;nop;sackOK";
     
-    match parse_log(&log){
+    match parse_log(log){
         Ok(parsed_log) => {
             println!("# LOG #");
             println!("rule number: {} ",parsed_log.packet_filter.rule_info.number);
