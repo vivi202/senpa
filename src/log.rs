@@ -54,7 +54,7 @@ pub struct FwLog {
 /// - `input`: A string slice representing the raw firewall log entry to be parsed.
 ///
 /// # Returns
-/// - `Result<FirewallLogEntry, LogParseError>`: On success, returns the parsed `FirewallLogEntry`.
+/// - `Result<FwLog, LogParseError>`: On success, returns the parsed `FirewallLogEntry`.
 ///   On failure, returns a `LogParseError` with the raw log and the reason for failure.
 ///
 /// # Errors
